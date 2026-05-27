@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard dự báo rủi ro doanh nghiệp Việt Nam</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Vietnam Listed Companies</p>
+      <h1>Dự báo khả năng phá sản doanh nghiệp Việt Nam</h1>
+    </div>
+    <div class="status-chip">
+      <span class="dot"></span>
+      <span id="dataStatus">Đang dùng dữ liệu lưu sẵn</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="sidebar">
+      <label class="search-label" for="tickerSearch">Tra cứu mã cổ phiếu</label>
+      <div class="search-box">
+        <input id="tickerSearch" type="search" autocomplete="off" placeholder="VD: FPT, HPG, VNM">
+        <button id="clearSearch" title="Xóa tìm kiếm" aria-label="Xóa tìm kiếm">×</button>
+      </div>
+      <p id="searchMeta" class="search-meta">Gõ ít nhất 2 ký tự để tìm mã HOSE/HNX.</p>
+      <div id="tickerList" class="ticker-list" aria-label="Danh sách mã cổ phiếu"></div>
+    </aside>
+
+    <section class="content">
+      <section class="summary-grid" aria-label="Tổng quan doanh nghiệp">
+        <article class="metric-card">
+          <span>Mã cổ phiếu</span>
+          <strong id="metricTicker">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Doanh nghiệp</span>
+          <strong id="metricCompany">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Xác suất distress</span>
+          <strong id="metricProbability">--</strong>
+        </article>
+        <article class="metric-card result-card" id="metricResultCard">
+          <span>Kết quả năm nay</span>
+          <strong id="metricResult">--</strong>
+        </article>
+      </section>
+
+      <nav class="tabs" aria-label="Nội dung dashboard">
+        <button class="tab active" data-tab="forecast">Kết quả dự báo năm nay</button>
+        <button class="tab" data-tab="ratios">Chỉ số tài chính</button>
+        <button class="tab" data-tab="history">Dữ liệu quá khứ</button>
+        <button class="tab" data-tab="models">Thông số mô hình</button>
+        <button class="tab" data-tab="pipeline">Code đã chạy</button>
+      </nav>
+
+      <section id="forecast" class="tab-panel active">
+        <div class="panel-grid">
+          <article class="panel-main">
+            <div class="section-title">
+              <h2>Dự báo rủi ro tài chính</h2>
+              <span id="forecastYear">Năm --</span>
+            </div>
+            <div class="forecast-band" id="forecastBand">
+              <div>
+                <p id="forecastLabel">--</p>
+                <strong id="forecastProbability">--</strong>
+              </div>
+              <span id="forecastDecision">--</span>
+            </div>
+            <div class="probability-track" aria-label="Thang xác suất distress">
+              <div id="probabilityFill"></div>
+            </div>
+            <div class="explain-grid">
+              <div>
+                <span>Ngưỡng cảnh báo</span>
+                <strong id="thresholdValue">--</strong>
+              </div>
+              <div>
+                <span>Mô hình chính</span>
+                <strong id="primaryModel">--</strong>
+              </div>
+              <div>
+                <span>Ngày chốt dữ liệu</span>
+                <strong id="snapshotDate">--</strong>
+              </div>
+            </div>
+          </article>
+          <article class="panel-side">
+            <h3>Chỉ báo rủi ro chính</h3>
+            <div id="riskDrivers" class="driver-list"></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="ratios" class="tab-panel">
+        <div class="section-title">
+          <h2>Chỉ số tài chính quan trọng</h2>
+          <span>ROA, đòn bẩy, thanh toán nhanh, vòng quay tài sản, EBIT/chi phí lãi vay</span>
+        </div>
+        <div id="ratioCards" class="ratio-grid"></div>
+        <div id="ratioCharts" class="ratio-chart-grid"></div>
+      </section>
+
+      <section id="history" class="tab-panel">
+        <div class="section-title">
+          <h2>Dữ liệu quá khứ của doanh nghiệp</h2>
+          <span>Nguồn thị trường: dữ liệu giá OHLCV từ Vnstock</span>
+        </div>
+        <div class="chart-wrap">
+          <div id="historyChart" class="bar-chart"></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Năm</th>
+                <th>Doanh thu</th>
+                <th>Lợi nhuận sau thuế</th>
+                <th>Nợ/Tài sản</th>
+                <th>Current ratio</th>
+                <th>Altman Z</th>
+                <th>Giá cuối năm</th>
+              </tr>
+            </thead>
+            <tbody id="historyTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="models" class="tab-panel">
+        <div class="section-title">
+          <h2>Thông số các mô hình sử dụng</h2>
+      <span>Dự báo offline, frontend chỉ đọc kết quả</span>
+        </div>
+        <div id="modelCards" class="model-grid"></div>
+      </section>
+
+      <section id="pipeline" class="tab-panel">
+        <div class="section-title">
+          <h2>Code chạy ra kết quả từ trước</h2>
+          <span>File tham khảo: scripts/generate_predictions.py</span>
+        </div>
+        <pre class="code-block"><code id="pipelineCode"></code></pre>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
