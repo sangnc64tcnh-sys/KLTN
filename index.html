@@ -10,7 +10,8 @@
   <header class="topbar">
     <div>
       <p class="eyebrow">Vietnam Listed Companies</p>
-      <h1>Dự báo khả năng phá sản doanh nghiệp Việt Nam</h1>
+      <h1>Dự báo khả năng rủi ro tài chính doanh nghiệp Việt Nam</h1>
+      <p class="project-note">Sản phẩm phục vụ đồ án tốt nghiệp của sinh viên</p>
     </div>
     <div class="status-chip">
       <span class="dot"></span>
@@ -50,12 +51,21 @@
       </section>
 
       <nav class="tabs" aria-label="Nội dung dashboard">
+        <button class="tab" data-tab="info">Thông tin cơ bản</button>
         <button class="tab active" data-tab="forecast">Kết quả dự báo năm nay</button>
         <button class="tab" data-tab="ratios">Chỉ số tài chính</button>
         <button class="tab" data-tab="history">Dữ liệu quá khứ</button>
         <button class="tab" data-tab="models">Thông số mô hình</button>
         <button class="tab" data-tab="pipeline">Code đã chạy</button>
       </nav>
+
+      <section id="info" class="tab-panel">
+        <div class="section-title">
+          <h2>Thông tin cơ bản doanh nghiệp</h2>
+          <span id="infoSource">Nguồn: dữ liệu lưu sẵn hoặc Vnstock realtime</span>
+        </div>
+        <div id="basicInfo" class="info-grid"></div>
+      </section>
 
       <section id="forecast" class="tab-panel active">
         <div class="panel-grid">

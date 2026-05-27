@@ -57,6 +57,13 @@ h1 {
   letter-spacing: 0;
 }
 
+.project-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 600;
+}
+
 .status-chip {
   display: inline-flex;
   align-items: center;
@@ -382,6 +389,13 @@ h1 {
   margin-top: 4px;
 }
 
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.info-item,
 .ratio-card,
 .ratio-chart-card {
   padding: 14px;
@@ -390,6 +404,7 @@ h1 {
   background: var(--surface);
 }
 
+.info-item span,
 .ratio-card span,
 .ratio-chart-card span {
   display: block;
@@ -397,6 +412,7 @@ h1 {
   font-size: 13px;
 }
 
+.info-item strong,
 .ratio-card strong {
   display: block;
   margin-top: 6px;
@@ -597,6 +613,7 @@ tr:last-child td {
 
   .summary-grid,
   .panel-grid,
+  .info-grid,
   .ratio-grid,
   .ratio-chart-grid,
   .model-grid {
@@ -618,6 +635,7 @@ tr:last-child td {
   .summary-grid,
   .panel-grid,
   .explain-grid,
+  .info-grid,
   .ratio-grid,
   .ratio-chart-grid,
   .model-grid {
