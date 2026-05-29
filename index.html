@@ -12,6 +12,7 @@
       <p class="eyebrow">Vietnam Listed Companies</p>
       <h1>Dự báo khả năng rủi ro tài chính doanh nghiệp Việt Nam</h1>
       <p class="project-note">Sản phẩm phục vụ đồ án tốt nghiệp của sinh viên</p>
+      <p class="model-scope-note">Mô hình chỉ hỗ trợ doanh nghiệp phi tài chính; không áp dụng cho nhóm tài chính, ngân hàng, bảo hiểm và chứng khoán.</p>
     </div>
     <div class="status-chip">
       <span class="dot"></span>
@@ -27,6 +28,7 @@
         <button id="clearSearch" title="Xóa tìm kiếm" aria-label="Xóa tìm kiếm">×</button>
       </div>
       <p id="searchMeta" class="search-meta">Gõ ít nhất 2 ký tự để tìm mã HOSE/HNX.</p>
+      <p class="scope-note">Phạm vi: doanh nghiệp phi tài chính trên HOSE/HNX.</p>
       <div id="tickerList" class="ticker-list" aria-label="Danh sách mã cổ phiếu"></div>
     </aside>
 
@@ -41,7 +43,7 @@
           <strong id="metricCompany">--</strong>
         </article>
         <article class="metric-card">
-          <span>Xác suất distress</span>
+          <span>Trạng thái rủi ro</span>
           <strong id="metricProbability">--</strong>
         </article>
         <article class="metric-card result-card" id="metricResultCard">
@@ -56,7 +58,6 @@
         <button class="tab" data-tab="ratios">Chỉ số tài chính</button>
         <button class="tab" data-tab="history">Dữ liệu quá khứ</button>
         <button class="tab" data-tab="models">Thông số mô hình</button>
-        <button class="tab" data-tab="pipeline">Code đã chạy</button>
       </nav>
 
       <section id="info" class="tab-panel">
@@ -75,13 +76,32 @@
               <span id="forecastYear">Năm --</span>
             </div>
             <div class="forecast-band" id="forecastBand">
-              <div>
-                <p id="forecastLabel">--</p>
-                <strong id="forecastProbability">--</strong>
+              <div class="risk-summary-head">
+                <div>
+                  <p id="forecastLabel">--</p>
+                  <strong id="forecastDecision">--</strong>
+                </div>
+                <div class="risk-score">
+                  <span>Xác suất</span>
+                  <strong id="forecastProbability">--</strong>
+                </div>
               </div>
-              <span id="forecastDecision">--</span>
+              <div class="risk-meter">
+                <div class="risk-meter-track">
+                  <span class="zone low"></span>
+                  <span class="zone mid"></span>
+                  <span class="zone high"></span>
+                  <i id="riskMarker"></i>
+                </div>
+                <div class="risk-meter-labels">
+                  <span>Thấp</span>
+                  <span>Trung bình</span>
+                  <span>Cao</span>
+                </div>
+              </div>
+              <p id="forecastDecisionText" class="risk-note">--</p>
             </div>
-            <div class="probability-track" aria-label="Thang xác suất distress">
+            <div class="probability-track" aria-label="Thang xác suất rủi ro">
               <div id="probabilityFill"></div>
             </div>
             <div class="explain-grid">
@@ -104,6 +124,22 @@
             <div id="riskDrivers" class="driver-list"></div>
           </article>
         </div>
+        <div class="insight-grid">
+          <article class="insight-card">
+            <div class="section-title">
+              <h2>Mức độ ảnh hưởng của biến số</h2>
+              <span>Feature Importance</span>
+            </div>
+            <div id="featureRadar" class="radar-chart"></div>
+          </article>
+          <article class="insight-card">
+            <div class="section-title">
+              <h2>Khuyến nghị tự động</h2>
+              <span>Định hướng xử lý</span>
+            </div>
+            <div id="recommendations" class="recommendation-list"></div>
+          </article>
+        </div>
       </section>
 
       <section id="ratios" class="tab-panel">
@@ -111,7 +147,7 @@
           <h2>Chỉ số tài chính quan trọng</h2>
           <span>ROA, đòn bẩy, thanh toán nhanh, vòng quay tài sản, EBIT/chi phí lãi vay</span>
         </div>
-        <div id="ratioCards" class="ratio-grid"></div>
+        <div id="ratioCompareTable" class="compare-table-wrap"></div>
         <div id="ratioCharts" class="ratio-chart-grid"></div>
       </section>
 
@@ -149,13 +185,6 @@
         <div id="modelCards" class="model-grid"></div>
       </section>
 
-      <section id="pipeline" class="tab-panel">
-        <div class="section-title">
-          <h2>Code chạy ra kết quả từ trước</h2>
-          <span>File tham khảo: scripts/generate_predictions.py</span>
-        </div>
-        <pre class="code-block"><code id="pipelineCode"></code></pre>
-      </section>
     </section>
   </main>
 

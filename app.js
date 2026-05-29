@@ -2,11 +2,11 @@ const fallbackData = {
   "snapshot_date": "2026-05-20",
   "forecast_year": 2026,
   "threshold": 0.5,
-  "source": "Du lieu gia OHLCV tu Vnstock + bao cao tai chinh da tien xu ly offline",
+  "source": "Dữ liệu giá OHLCV từ Vnstock + báo cáo tài chính đã tiền xử lý offline",
   "models": [
     {
       "name": "Logistic Regression",
-      "role": "Mo hinh nen",
+      "role": "Mô hình nền",
       "auc": 0.81,
       "accuracy": 0.76,
         "recall_distress": 0.72,
@@ -18,7 +18,7 @@ const fallbackData = {
     },
     {
       "name": "Random Forest",
-      "role": "Mo hinh cay ket hop",
+      "role": "Mô hình cây kết hợp",
       "auc": 0.87,
       "accuracy": 0.82,
         "recall_distress": 0.79,
@@ -30,7 +30,7 @@ const fallbackData = {
     },
     {
       "name": "XGBoost",
-      "role": "Mo hinh chinh",
+      "role": "Mô hình chính",
       "auc": 0.89,
       "accuracy": 0.84,
         "recall_distress": 0.81,
@@ -46,14 +46,14 @@ const fallbackData = {
       "ticker": "FPT",
       "company": "CTCP FPT",
       "exchange": "HOSE",
-      "sector": "Cong nghe thong tin",
+      "sector": "Công nghệ thông tin",
       "probability": 0.12,
       "distress": false,
       "primary_model": "XGBoost",
       "drivers": [
-      {"label": "Diem Altman Z", "value": "4.18", "impact": "Vung an toan"},
-      {"label": "No/Tai san", "value": "39.2%", "impact": "Don bay thap"},
-      {"label": "Bien loi nhuan rong", "value": "15.6%", "impact": "Sinh loi tot"}
+      {"label": "Điểm Altman Z", "value": "4.18", "impact": "Vùng an toàn"},
+      {"label": "Nợ/Tài sản", "value": "39.2%", "impact": "Đòn bẩy thấp"},
+      {"label": "Biên lợi nhuận ròng", "value": "15.6%", "impact": "Sinh lời tốt"}
       ],
       "history": [
         {"year": 2021, "revenue": 35298, "profit": 5337, "debt_assets": 0.42, "current_ratio": 1.31, "altman_z": 3.48, "close_price": 58.6},
@@ -65,16 +65,16 @@ const fallbackData = {
     },
     {
       "ticker": "HPG",
-      "company": "CTCP Tap doan Hoa Phat",
+      "company": "CTCP Tập đoàn Hòa Phát",
       "exchange": "HOSE",
-      "sector": "Thep",
+      "sector": "Thép",
       "probability": 0.38,
       "distress": false,
       "primary_model": "XGBoost",
       "drivers": [
         {"label": "Bien loi nhuan rong", "value": "7.8%", "impact": "Dang phuc hoi"},
-        {"label": "Chu ky hang ton kho", "value": "116 ngay", "impact": "Can theo doi"},
-        {"label": "No/Tai san", "value": "47.6%", "impact": "Trung binh"}
+        {"label": "Chu kỳ hàng tồn kho", "value": "116 ngày", "impact": "Cần theo dõi"},
+        {"label": "Nợ/Tài sản", "value": "47.6%", "impact": "Trung bình"}
       ],
       "history": [
         {"year": 2021, "revenue": 149680, "profit": 34521, "debt_assets": 0.44, "current_ratio": 1.18, "altman_z": 2.94, "close_price": 34.4},
@@ -86,16 +86,16 @@ const fallbackData = {
     },
     {
       "ticker": "NVL",
-      "company": "CTCP Tap doan Dau tu Dia oc No Va",
+      "company": "CTCP Tập đoàn Đầu tư Địa ốc No Va",
       "exchange": "HOSE",
-      "sector": "Bat dong san",
+      "sector": "Bất động sản",
       "probability": 0.73,
       "distress": true,
       "primary_model": "XGBoost",
       "drivers": [
-        {"label": "No/Tai san", "value": "72.4%", "impact": "Don bay cao"},
-      {"label": "He so thanh toan hien hanh", "value": "0.82", "impact": "Thanh khoan yeu"},
-      {"label": "Diem Altman Z", "value": "1.26", "impact": "Vung canh bao"}
+        {"label": "Nợ/Tài sản", "value": "72.4%", "impact": "Đòn bẩy cao"},
+      {"label": "Hệ số thanh toán hiện hành", "value": "0.82", "impact": "Thanh khoản yếu"},
+      {"label": "Điểm Altman Z", "value": "1.26", "impact": "Vùng cảnh báo"}
       ],
       "history": [
         {"year": 2021, "revenue": 14577, "profit": 3455, "debt_assets": 0.61, "current_ratio": 1.04, "altman_z": 2.18, "close_price": 72.4},
@@ -107,16 +107,16 @@ const fallbackData = {
     },
     {
       "ticker": "VNM",
-      "company": "CTCP Sua Viet Nam",
+      "company": "CTCP Sữa Việt Nam",
       "exchange": "HOSE",
-      "sector": "Hang tieu dung",
+      "sector": "Hàng tiêu dùng",
       "probability": 0.18,
       "distress": false,
       "primary_model": "XGBoost",
       "drivers": [
-      {"label": "He so thanh toan hien hanh", "value": "2.02", "impact": "Thanh khoan tot"},
+      {"label": "Hệ số thanh toán hiện hành", "value": "2.02", "impact": "Thanh khoản tốt"},
         {"label": "Bien loi nhuan rong", "value": "16.4%", "impact": "On dinh"},
-        {"label": "No/Tai san", "value": "31.5%", "impact": "Thap"}
+        {"label": "Nợ/Tài sản", "value": "31.5%", "impact": "Thấp"}
       ],
       "history": [
         {"year": 2021, "revenue": 60919, "profit": 10633, "debt_assets": 0.34, "current_ratio": 1.86, "altman_z": 4.02, "close_price": 74.8},
@@ -128,16 +128,16 @@ const fallbackData = {
     },
     {
       "ticker": "PDR",
-      "company": "CTCP Phat trien Bat dong san Phat Dat",
+      "company": "CTCP Phát triển Bất động sản Phát Đạt",
       "exchange": "HOSE",
-      "sector": "Bat dong san",
+      "sector": "Bất động sản",
       "probability": 0.64,
       "distress": true,
       "primary_model": "XGBoost",
       "drivers": [
-        {"label": "Dong tien tu HĐKD", "value": "Am", "impact": "Ap luc dong tien"},
-        {"label": "No/Tai san", "value": "68.1%", "impact": "Cao"},
-      {"label": "Diem Altman Z", "value": "1.52", "impact": "Vung canh bao"}
+        {"label": "Dòng tiền từ HĐKD", "value": "Âm", "impact": "Áp lực dòng tiền"},
+        {"label": "Nợ/Tài sản", "value": "68.1%", "impact": "Cao"},
+      {"label": "Điểm Altman Z", "value": "1.52", "impact": "Vùng cảnh báo"}
       ],
       "history": [
         {"year": 2021, "revenue": 3620, "profit": 1860, "debt_assets": 0.55, "current_ratio": 1.12, "altman_z": 2.2, "close_price": 42.1},
@@ -218,7 +218,7 @@ const additionalCompanies = [
     "ticker": "MWG",
     "company": "CTCP Dau tu The Gioi Di Dong",
     "exchange": "HOSE",
-    "sector": "Ban le",
+    "sector": "Bán lẻ",
     "probability": 0.34,
     "distress": false,
     "primary_model": "XGBoost",
@@ -260,7 +260,7 @@ const additionalCompanies = [
     "ticker": "VHM",
     "company": "CTCP Vinhomes",
     "exchange": "HOSE",
-    "sector": "Bat dong san",
+    "sector": "Bất động sản",
     "probability": 0.41,
     "distress": false,
     "primary_model": "XGBoost",
@@ -281,7 +281,7 @@ const additionalCompanies = [
     "ticker": "MSN",
     "company": "CTCP Tap doan Masan",
     "exchange": "HOSE",
-    "sector": "Hang tieu dung",
+    "sector": "Hàng tiêu dùng",
     "probability": 0.36,
     "distress": false,
     "primary_model": "XGBoost",
@@ -302,7 +302,7 @@ const additionalCompanies = [
     "ticker": "GAS",
     "company": "Tong Cong ty Khi Viet Nam - CTCP",
     "exchange": "HOSE",
-    "sector": "Dau khi",
+    "sector": "Dầu khí",
     "probability": 0.14,
     "distress": false,
     "primary_model": "XGBoost",
@@ -363,9 +363,9 @@ const additionalCompanies = [
   },
   {
     "ticker": "POW",
-    "company": "Tong Cong ty Dien luc Dau khi Viet Nam - CTCP",
+    "company": "Tổng Công ty Điện lực Dầu khí Việt Nam - CTCP",
     "exchange": "HOSE",
-    "sector": "Dien",
+    "sector": "Điện",
     "probability": 0.33,
     "distress": false,
     "primary_model": "XGBoost",
@@ -407,7 +407,7 @@ const additionalCompanies = [
     "ticker": "DIG",
     "company": "Tong CTCP Dau tu Phat trien Xay dung",
     "exchange": "HOSE",
-    "sector": "Bat dong san",
+    "sector": "Bất động sản",
     "probability": 0.61,
     "distress": true,
     "primary_model": "XGBoost",
@@ -445,7 +445,7 @@ function normalizeModelSet(data) {
     models: [
       {
         "name": "Logistic Regression",
-        "role": "Mo hinh nen",
+        "role": "Mô hình nền",
         "auc": 0.81,
         "accuracy": 0.76,
         "recall_distress": 0.72,
@@ -457,7 +457,7 @@ function normalizeModelSet(data) {
       },
       {
         "name": "Random Forest",
-        "role": "Mo hinh chinh",
+        "role": "Mô hình chính",
         "auc": 0.87,
         "accuracy": 0.82,
         "recall_distress": 0.79,
@@ -469,7 +469,7 @@ function normalizeModelSet(data) {
       },
       {
         "name": "SVM",
-        "role": "Mo hinh bien quyet dinh phi tuyen",
+        "role": "Mô hình biên quyết định phi tuyến",
         "auc": 0.85,
         "accuracy": 0.8,
         "recall_distress": 0.76,
@@ -616,6 +616,11 @@ let stockUniverse = [];
 let realtimeCache = new Map();
 const STOCK_UNIVERSE_URL = "https://huggingface.co/datasets/ThunderDrag/Vietnam-Stock-Symbols-and-Metadata/resolve/main/vietnam.csv";
 const REALTIME_API_URL = "http://127.0.0.1:8787/api/realtime";
+const unsupportedFinancialTickers = new Set([
+  "ABB", "ACB", "BAB", "BIC", "BID", "BMI", "BSI", "BVB", "BVH", "CTG", "CTS", "EIB",
+  "HCM", "HDB", "KLB", "LPB", "MBB", "MBS", "MSB", "NAB", "NVB", "OCB", "PGB", "SGB",
+  "SHB", "SSI", "SSB", "STB", "TCB", "TPB", "VCB", "VCI", "VDS", "VIB", "VND", "VPB"
+]);
 
 const els = {
   tickerSearch: document.querySelector("#tickerSearch"),
@@ -633,14 +638,20 @@ const els = {
   forecastLabel: document.querySelector("#forecastLabel"),
   forecastProbability: document.querySelector("#forecastProbability"),
   forecastDecision: document.querySelector("#forecastDecision"),
+  forecastDecisionText: document.querySelector("#forecastDecisionText"),
+  riskMarker: document.querySelector("#riskMarker"),
   probabilityFill: document.querySelector("#probabilityFill"),
   thresholdValue: document.querySelector("#thresholdValue"),
   primaryModel: document.querySelector("#primaryModel"),
   snapshotDate: document.querySelector("#snapshotDate"),
   riskDrivers: document.querySelector("#riskDrivers"),
+  featureRadar: document.querySelector("#featureRadar"),
+  recommendations: document.querySelector("#recommendations"),
   infoSource: document.querySelector("#infoSource"),
   basicInfo: document.querySelector("#basicInfo"),
   ratioCards: document.querySelector("#ratioCards"),
+  benchmarkCards: document.querySelector("#benchmarkCards"),
+  ratioCompareTable: document.querySelector("#ratioCompareTable"),
   ratioCharts: document.querySelector("#ratioCharts"),
   historyChart: document.querySelector("#historyChart"),
   historyTable: document.querySelector("#historyTable"),
@@ -667,6 +678,78 @@ function formatNumber(value, digits = 2) {
     minimumFractionDigits: digits,
     maximumFractionDigits: digits
   });
+}
+
+function getRiskBand(probability) {
+  if (probability >= 0.6) {
+    return { label: "Rủi ro cao", className: "danger", color: "#b9383b", action: "Cần ưu tiên xử lý" };
+  }
+  if (probability >= 0.3) {
+    return { label: "Rủi ro trung bình", className: "warn", color: "#b7791f", action: "Cần theo dõi sát" };
+  }
+  return { label: "Rủi ro thấp", className: "safe", color: "#1d7f57", action: "Tình trạng tương đối ổn định" };
+}
+
+function getIndustryBenchmark(company) {
+  const map = {
+    "Cong nghe thong tin": { roa: 0.11, leverage: 1.75, quick_ratio: 1.18, asset_turnover: 0.92, interest_coverage: 6.4, altman_z: 3.1 },
+    "Công nghệ thông tin": { roa: 0.11, leverage: 1.75, quick_ratio: 1.18, asset_turnover: 0.92, interest_coverage: 6.4, altman_z: 3.1 },
+    "Thep": { roa: 0.07, leverage: 2.15, quick_ratio: 0.88, asset_turnover: 1.04, interest_coverage: 4.2, altman_z: 2.35 },
+    "Thép": { roa: 0.07, leverage: 2.15, quick_ratio: 0.88, asset_turnover: 1.04, interest_coverage: 4.2, altman_z: 2.35 },
+    "Bat dong san": { roa: 0.045, leverage: 2.55, quick_ratio: 0.72, asset_turnover: 0.36, interest_coverage: 2.7, altman_z: 1.95 },
+    "Bất động sản": { roa: 0.045, leverage: 2.55, quick_ratio: 0.72, asset_turnover: 0.36, interest_coverage: 2.7, altman_z: 1.95 },
+    "Hang tieu dung": { roa: 0.09, leverage: 1.85, quick_ratio: 1.05, asset_turnover: 1.12, interest_coverage: 5.8, altman_z: 2.85 },
+    "Hàng tiêu dùng": { roa: 0.09, leverage: 1.85, quick_ratio: 1.05, asset_turnover: 1.12, interest_coverage: 5.8, altman_z: 2.85 },
+    "Ban le": { roa: 0.065, leverage: 2.05, quick_ratio: 0.82, asset_turnover: 1.68, interest_coverage: 4.6, altman_z: 2.45 },
+    "Bán lẻ": { roa: 0.065, leverage: 2.05, quick_ratio: 0.82, asset_turnover: 1.68, interest_coverage: 4.6, altman_z: 2.45 },
+    "Dau khi": { roa: 0.075, leverage: 1.7, quick_ratio: 1.22, asset_turnover: 0.78, interest_coverage: 5.1, altman_z: 2.75 },
+    "Dầu khí": { roa: 0.075, leverage: 1.7, quick_ratio: 1.22, asset_turnover: 0.78, interest_coverage: 5.1, altman_z: 2.75 },
+    "Dien": { roa: 0.055, leverage: 2.25, quick_ratio: 0.92, asset_turnover: 0.62, interest_coverage: 3.9, altman_z: 2.3 },
+    "Điện": { roa: 0.055, leverage: 2.25, quick_ratio: 0.92, asset_turnover: 0.62, interest_coverage: 3.9, altman_z: 2.3 },
+    "Cao su": { roa: 0.06, leverage: 1.9, quick_ratio: 1.04, asset_turnover: 0.7, interest_coverage: 4.1, altman_z: 2.55 }
+  };
+  return map[company.sector] || { roa: 0.065, leverage: 2.05, quick_ratio: 0.95, asset_turnover: 0.86, interest_coverage: 4.3, altman_z: 2.5 };
+}
+
+function getFeatureImportance(company) {
+  const ratios = getLatestRatios(company);
+  const latest = company.history.at(-1) || {};
+  const benchmark = getIndustryBenchmark(company);
+  const risk = company.probability ?? 0.35;
+  return [
+    { label: "Đòn bẩy", value: Math.min(1, Math.max(0.12, (ratios.leverage || 1) / (benchmark.leverage * 1.5))) },
+    { label: "Thanh khoản", value: Math.min(1, Math.max(0.12, benchmark.quick_ratio / Math.max(ratios.quick_ratio || 0.4, 0.4))) },
+    { label: "ROA", value: Math.min(1, Math.max(0.12, benchmark.roa / Math.max(ratios.roa || 0.01, 0.01) * 0.45)) },
+    { label: "Altman Z", value: Math.min(1, Math.max(0.12, benchmark.altman_z / Math.max(latest.altman_z || 1, 1) * 0.5)) },
+    { label: "Lãi vay", value: Math.min(1, Math.max(0.12, benchmark.interest_coverage / Math.max(ratios.interest_coverage || 0.5, 0.5) * 0.45)) },
+    { label: "Xác suất", value: Math.min(1, Math.max(0.12, risk)) }
+  ];
+}
+
+function getRecommendations(company) {
+  const ratios = getLatestRatios(company);
+  const benchmark = getIndustryBenchmark(company);
+  const recs = [];
+
+  if ((company.probability ?? 0) >= 0.6) {
+    recs.push(["Ưu tiên kiểm soát dòng tiền", "Rà soát kế hoạch trả nợ ngắn hạn, trì hoãn chi tiêu vốn chưa cấp thiết và tăng dự phòng thanh khoản."]);
+  } else if ((company.probability ?? 0) >= 0.3) {
+    recs.push(["Theo dõi cảnh báo sớm", "Thiết lập ngưỡng theo dõi hàng quý cho thanh khoản, biên lợi nhuận và nợ vay."]);
+  } else {
+    recs.push(["Duy trì cấu trúc hiện tại", "Tiếp tục giữ kỷ luật vốn lưu động và theo dõi biến động ngành."]);
+  }
+
+  if ((ratios.quick_ratio || 0) < benchmark.quick_ratio) {
+    recs.push(["Cải thiện thanh khoản", "Tăng tiền mặt/ngắn hạn, giảm tồn kho chậm luân chuyển và thương lượng kéo dài kỳ hạn nợ."]);
+  }
+  if ((ratios.leverage || 0) > benchmark.leverage) {
+    recs.push(["Giảm đòn bẩy", "Ưu tiên trả nợ chi phí cao, tái cơ cấu kỳ hạn vay và hạn chế tăng nợ mới."]);
+  }
+  if ((ratios.interest_coverage || 0) < benchmark.interest_coverage) {
+    recs.push(["Giảm áp lực lãi vay", "Tối ưu chi phí tài chính, tái đàm phán lãi suất và cải thiện EBIT bằng kiểm soát chi phí."]);
+  }
+
+  return recs.slice(0, 4);
 }
 
 function getSelectedCompany() {
@@ -702,13 +785,13 @@ function getSelectedCompany() {
     ticker: symbol.ticker,
     company: symbol.company,
     exchange: symbol.exchange,
-    sector: symbol.sector || "Chua phan nganh",
+    sector: symbol.sector || "Chưa phân ngành",
     probability: null,
     distress: false,
     hasPrediction: false,
-    primary_model: "Chua co ket qua luu san",
+    primary_model: "Chưa có kết quả lưu sẵn",
     drivers: [
-      {"label": "Trang thai", "value": "Chua co prediction", "impact": "Can chay batch offline"},
+      {"label": "Trạng thái", "value": "Chưa có dự báo", "impact": "Cần chạy batch offline"},
       {"label": "San", "value": symbol.exchange, "impact": "Da co trong universe HOSE/HNX"},
       {"label": "Nguon ma", "value": "Vietnam stock metadata", "impact": "Dung de lookup ma"}
     ],
@@ -759,25 +842,25 @@ function parseCsv(text) {
 
 function normalizeUniverseRow(row) {
   const sectorMap = {
-    "Finance": "Tai chinh",
-    "Consumer non-durables": "Hang tieu dung nhanh",
-    "Consumer durables": "Hang tieu dung lau ben",
-    "Utilities": "Tien ich",
-    "Transportation": "Van tai",
-    "Industrial services": "Dich vu cong nghiep",
-    "Non-energy minerals": "Vat lieu co ban",
-    "Process industries": "Cong nghiep che bien",
-    "Producer manufacturing": "San xuat",
-    "Technology services": "Dich vu cong nghe",
-    "Health technology": "Y te",
-    "Retail trade": "Ban le",
-    "Distribution services": "Phan phoi",
-    "Commercial services": "Dich vu thuong mai",
-    "Energy minerals": "Nang luong",
-    "Communications": "Vien thong",
-    "Miscellaneous": "Khac"
+    "Finance": "Tài chính",
+    "Consumer non-durables": "Hàng tiêu dùng nhanh",
+    "Consumer durables": "Hàng tiêu dùng lâu bền",
+    "Utilities": "Tiện ích",
+    "Transportation": "Vận tải",
+    "Industrial services": "Dịch vụ công nghiệp",
+    "Non-energy minerals": "Vật liệu cơ bản",
+    "Process industries": "Công nghiệp chế biến",
+    "Producer manufacturing": "Sản xuất",
+    "Technology services": "Dịch vụ công nghệ",
+    "Health technology": "Y tế",
+    "Retail trade": "Bán lẻ",
+    "Distribution services": "Phân phối",
+    "Commercial services": "Dịch vụ thương mại",
+    "Energy minerals": "Năng lượng",
+    "Communications": "Viễn thông",
+    "Miscellaneous": "Khác"
   };
-  const sector = row.sector || "Chua phan nganh";
+  const sector = row.sector || "Chưa phân ngành";
   return {
     company: row.name || row.company || row.companyName || row.ticker,
     ticker: String(row.ticker || "").trim().toUpperCase(),
@@ -786,9 +869,28 @@ function normalizeUniverseRow(row) {
   };
 }
 
+function isUnsupportedFinancialStock(item) {
+  const text = `${item.ticker || ""} ${item.company || ""} ${item.sector || ""}`.toUpperCase();
+  return unsupportedFinancialTickers.has(item.ticker)
+    || text.includes("NGAN HANG")
+    || text.includes("NGÂN HÀNG")
+    || text.includes("BANK")
+    || text.includes("BANKING")
+    || text.includes("BAO HIEM")
+    || text.includes("BẢO HIỂM")
+    || text.includes("INSURANCE")
+    || text.includes("CHUNG KHOAN")
+    || text.includes("CHỨNG KHOÁN")
+    || text.includes("CHỨNG KHOÁN")
+    || text.includes("SECURITIES")
+    || text.includes("TAI CHINH")
+    || text.includes("TÀI CHÍNH")
+    || text.includes("FINANCE");
+}
+
 function buildUniverse(data, remoteRows = []) {
   const map = new Map();
-  data.companies.forEach((item) => {
+  data.companies.filter((item) => !isUnsupportedFinancialStock(item)).forEach((item) => {
     map.set(item.ticker, {
       ticker: item.ticker,
       company: item.company,
@@ -800,7 +902,7 @@ function buildUniverse(data, remoteRows = []) {
 
   remoteRows
     .map(normalizeUniverseRow)
-    .filter((item) => item.ticker && ["HOSE", "HNX"].includes(item.exchange))
+    .filter((item) => item.ticker && ["HOSE", "HNX"].includes(item.exchange) && !isUnsupportedFinancialStock(item))
     .forEach((item) => {
       map.set(item.ticker, { ...item, hasPrediction: map.get(item.ticker)?.hasPrediction || false });
     });
@@ -855,6 +957,7 @@ function createGeneratedPrediction(symbol) {
   const sectorRisk = {
     "Tai chinh": 0.04,
     "Hang tieu dung nhanh": -0.04,
+    "Hàng tiêu dùng nhanh": -0.04,
     "Tien ich": -0.05,
     "Van tai": 0.03,
     "Dich vu cong nghiep": 0.05,
@@ -862,6 +965,7 @@ function createGeneratedPrediction(symbol) {
     "Cong nghiep che bien": 0.02,
     "San xuat": 0.02,
     "Hang tieu dung lau ben": 0.04,
+    "Hàng tiêu dùng lâu bền": 0.04,
     "Finance": 0.04,
     "Consumer non-durables": -0.04,
     "Utilities": -0.05,
@@ -900,7 +1004,7 @@ function createGeneratedPrediction(symbol) {
     ticker: symbol.ticker,
     company: symbol.company,
     exchange: symbol.exchange,
-    sector: symbol.sector || "Chua phan nganh",
+    sector: symbol.sector || "Chưa phân ngành",
     founded_date: generatedDate(symbol.ticker, "founded"),
     listing_date: generatedDate(symbol.ticker, "listing"),
     charter_capital: seededInt(`${symbol.ticker}:capital`, 350, 58000),
@@ -915,19 +1019,19 @@ function createGeneratedPrediction(symbol) {
     primary_model: "Random Forest - ket qua batch da luu",
     drivers: [
       {
-        "label": "Diem Altman Z",
+        "label": "Điểm Altman Z",
         "value": latestZ.toFixed(2),
-        "impact": distress ? "Vung canh bao" : "Vung theo doi"
+        "impact": distress ? "Vùng cảnh báo" : "Vùng theo dõi"
       },
       {
-        "label": "No/Tai san",
+        "label": "Nợ/Tài sản",
         "value": `${Math.round(debtAssets * 100)}%`,
-        "impact": debtAssets >= 0.6 ? "Don bay cao" : "Trong nguong kiem soat"
+        "impact": debtAssets >= 0.6 ? "Đòn bẩy cao" : "Trong ngưỡng kiểm soát"
       },
       {
-        "label": "He so thanh toan hien hanh",
+        "label": "Hệ số thanh toán hiện hành",
         "value": currentRatio.toFixed(2),
-        "impact": currentRatio < 1 ? "Ap luc ngan han" : "Thanh khoan chap nhan duoc"
+        "impact": currentRatio < 1 ? "Áp lực ngắn hạn" : "Thanh khoản chấp nhận được"
       }
     ],
     history
@@ -935,14 +1039,15 @@ function createGeneratedPrediction(symbol) {
 }
 
 function ensurePredictionsForUniverse() {
-  const existing = new Set(dashboardData.companies.map((item) => item.ticker));
+  const supportedCompanies = dashboardData.companies.filter((item) => !isUnsupportedFinancialStock(item));
+  const existing = new Set(supportedCompanies.map((item) => item.ticker));
   const generated = stockUniverse
     .filter((item) => !existing.has(item.ticker))
     .map(createGeneratedPrediction);
 
   dashboardData = {
     ...dashboardData,
-    companies: [...dashboardData.companies, ...generated]
+    companies: [...supportedCompanies, ...generated]
   };
   buildUniverse(dashboardData, stockUniverse.map((item) => ({
     name: item.company,
@@ -977,7 +1082,13 @@ function loadStockUniverse() {
 function renderTickerList() {
   const keyword = els.tickerSearch.value.trim().toUpperCase();
   if (keyword.length < 2) {
-    els.searchMeta.textContent = `Gõ ít nhất 2 ký tự để tìm trong ${stockUniverse.length || dashboardData.companies.length} mã HOSE/HNX đã có dự báo.`;
+    els.searchMeta.textContent = `Gõ ít nhất 2 ký tự để tìm trong ${stockUniverse.length || dashboardData.companies.length} mã phi tài chính HOSE/HNX đã có dự báo.`;
+    els.tickerList.innerHTML = "";
+    return;
+  }
+
+  if (isUnsupportedFinancialStock({ ticker: keyword, company: keyword, sector: keyword })) {
+    els.searchMeta.textContent = "Mã này thuộc nhóm tài chính/ngân hàng/bảo hiểm/chứng khoán nên không nằm trong phạm vi mô hình.";
     els.tickerList.innerHTML = "";
     return;
   }
@@ -987,8 +1098,8 @@ function renderTickerList() {
   }).slice(0, 30);
 
   els.searchMeta.textContent = filtered.length
-    ? `Hiển thị ${filtered.length} kết quả gần nhất. Tất cả mã trong danh sách đều có dự báo lưu sẵn.`
-    : "Không tìm thấy mã phù hợp trên HOSE/HNX.";
+    ? `Hiển thị ${filtered.length} kết quả gần nhất. Đã loại nhóm tài chính, ngân hàng, bảo hiểm và chứng khoán.`
+    : "Không tìm thấy mã phi tài chính phù hợp trên HOSE/HNX.";
 
   els.tickerList.innerHTML = filtered.map((item) => `
     <button class="ticker-item ${item.ticker === selectedTicker ? "active" : ""}" data-ticker="${item.ticker}">
@@ -1008,29 +1119,32 @@ function renderTickerList() {
 
 function renderSummary(company) {
   const probability = formatPercent(company.probability);
-  const resultText = !company.hasPrediction ? "Chưa có kết quả" : company.distress ? "Có rủi ro" : "Không rủi ro";
-  const resultClass = company.distress ? "distress" : "safe";
+  const band = getRiskBand(company.probability ?? 0);
+  const resultText = !company.hasPrediction ? "Chưa có kết quả" : band.label;
+  const resultClass = band.className === "danger" ? "distress" : band.className;
 
   els.metricTicker.textContent = company.ticker;
   els.metricCompany.textContent = company.company;
-  els.metricProbability.textContent = probability;
+  els.metricProbability.textContent = band.label;
   els.metricResult.textContent = resultText;
   els.metricResultCard.className = `metric-card result-card ${resultClass}`;
 }
 
 function renderForecast(company) {
-  const resultClass = company.distress ? "distress" : "safe";
+  const band = getRiskBand(company.probability ?? 0);
+  const resultClass = band.className === "danger" ? "distress" : band.className;
   const probability = formatPercent(company.probability);
+  const marker = Math.max(0, Math.min(100, Math.round((company.probability ?? 0) * 100)));
 
   els.forecastYear.textContent = `Năm ${dashboardData.forecast_year}`;
   els.forecastBand.className = `forecast-band ${resultClass}`;
   els.forecastLabel.textContent = `${company.ticker} - ${company.exchange} - ${company.sector}`;
   els.forecastProbability.textContent = probability;
-  els.forecastDecision.textContent = !company.hasPrediction
-    ? "Chưa có kết quả dự báo lưu sẵn"
-    : company.distress ? "Cảnh báo rủi ro" : "Chưa có rủi ro";
+  els.forecastDecision.textContent = band.label;
+  els.forecastDecisionText.textContent = `${band.action}. Xác suất dự báo: ${probability}.`;
+  els.riskMarker.style.setProperty("--marker-left", `${marker}%`);
   els.probabilityFill.style.width = company.hasPrediction ? probability : "0%";
-  els.probabilityFill.className = company.probability >= 0.65 ? "danger" : company.probability >= 0.45 ? "warn" : "";
+  els.probabilityFill.className = band.className === "danger" ? "danger" : band.className === "warn" ? "warn" : "";
   els.thresholdValue.textContent = formatPercent(dashboardData.threshold);
   els.primaryModel.textContent = company.primary_model;
   els.snapshotDate.textContent = dashboardData.snapshot_date;
@@ -1040,6 +1154,55 @@ function renderForecast(company) {
       <span>${driver.label}</span>
       <strong>${driver.value}</strong>
       <span>${driver.impact}</span>
+    </div>
+  `).join("");
+  renderFeatureRadar(company);
+  renderRecommendations(company);
+}
+
+function renderFeatureRadar(company) {
+  const data = getFeatureImportance(company);
+  const center = 145;
+  const radius = 96;
+  const points = data.map((item, index) => {
+    const angle = (Math.PI * 2 * index / data.length) - Math.PI / 2;
+    return {
+      ...item,
+      x: center + Math.cos(angle) * radius * item.value,
+      y: center + Math.sin(angle) * radius * item.value,
+      lx: center + Math.cos(angle) * (radius + 34),
+      ly: center + Math.sin(angle) * (radius + 34)
+    };
+  });
+  const polygon = points.map((point) => `${point.x},${point.y}`).join(" ");
+  const axes = data.map((item, index) => {
+    const angle = (Math.PI * 2 * index / data.length) - Math.PI / 2;
+    const x = center + Math.cos(angle) * radius;
+    const y = center + Math.sin(angle) * radius;
+    const label = points[index];
+    return `
+      <line x1="${center}" y1="${center}" x2="${x}" y2="${y}" stroke="#d9e1dc" />
+      <text class="radar-label" x="${label.lx}" y="${label.ly}" text-anchor="middle">${item.label}</text>
+    `;
+  }).join("");
+  const rings = [0.33, 0.66, 1].map((level) => `
+    <circle cx="${center}" cy="${center}" r="${radius * level}" fill="none" stroke="#d9e1dc" />
+  `).join("");
+
+  els.featureRadar.innerHTML = `
+    <svg class="radar-svg" viewBox="0 0 290 290" role="img" aria-label="Feature importance">
+      ${rings}
+      ${axes}
+      <polygon class="radar-polygon" points="${polygon}"></polygon>
+    </svg>
+  `;
+}
+
+function renderRecommendations(company) {
+  els.recommendations.innerHTML = getRecommendations(company).map(([title, body]) => `
+    <div class="recommendation-item">
+      <strong>${title}</strong>
+      <span>${body}</span>
     </div>
   `).join("");
 }
@@ -1086,30 +1249,82 @@ function getRatioHistory(company) {
 
 function renderRatios(company) {
   if (!company.history.length) {
-    els.ratioCards.innerHTML = `
-      <div class="ratio-card">
-        <span>Trạng thái</span>
-        <strong>Chưa có dữ liệu</strong>
-      </div>
-    `;
+    els.ratioCompareTable.innerHTML = "<table><tbody><tr><td>Chưa có dữ liệu chỉ số tài chính.</td></tr></tbody></table>";
     els.ratioCharts.innerHTML = "";
     return;
   }
 
   const ratios = getLatestRatios(company);
-  const cards = [
-    ["ROA", formatPercent(ratios.roa)],
-    ["Đòn bẩy tài chính", `${formatNumber(ratios.leverage)}x`],
-    ["Khả năng thanh toán nhanh", `${formatNumber(ratios.quick_ratio)}x`],
-    ["Vòng quay tài sản", `${formatNumber(ratios.asset_turnover)}x`],
-    ["EBIT/chi phí lãi vay", `${formatNumber(ratios.interest_coverage)}x`]
+  const benchmark = getIndustryBenchmark(company);
+  const latest = company.history.at(-1) || {};
+  const benchmarkItems = [
+    ["ROA", ratios.roa, benchmark.roa, true, "higher", "Khả năng sinh lời trên tài sản"],
+    ["Đòn bẩy tài chính", ratios.leverage, benchmark.leverage, false, "lower", "Mức sử dụng nợ trong cấu trúc vốn"],
+    ["Khả năng thanh toán nhanh", ratios.quick_ratio, benchmark.quick_ratio, false, "higher", "Năng lực thanh toán ngắn hạn"],
+    ["Vòng quay tài sản", ratios.asset_turnover, benchmark.asset_turnover, false, "higher", "Hiệu quả sử dụng tài sản"],
+    ["EBIT/chi phí lãi vay", ratios.interest_coverage, benchmark.interest_coverage, false, "higher", "Khả năng chi trả lãi vay"],
+    ["Z-score", latest.altman_z, benchmark.altman_z, false, "higher", "Mốc cảnh báo sức khỏe tài chính"]
   ];
-  els.ratioCards.innerHTML = cards.map(([label, value]) => `
-    <div class="ratio-card">
-      <span>${label}</span>
-      <strong>${value}</strong>
-    </div>
-  `).join("");
+
+  function compareStatus(actual, avg, direction) {
+    if (actual === null || actual === undefined || avg === null || avg === undefined) {
+      return ["watch", "Thiếu dữ liệu"];
+    }
+    const ratio = actual / avg;
+    if (direction === "lower") {
+      if (ratio <= 0.9) return ["good", "Tốt hơn ngành"];
+      if (ratio <= 1.15) return ["watch", "Gần trung bình"];
+      return ["bad", "Yếu hơn ngành"];
+    }
+    if (ratio >= 1.1) return ["good", "Tốt hơn ngành"];
+    if (ratio >= 0.85) return ["watch", "Gần trung bình"];
+    return ["bad", "Yếu hơn ngành"];
+  }
+
+  els.ratioCompareTable.innerHTML = `
+    <table>
+      <thead>
+        <tr>
+          <th>Chỉ số</th>
+          <th>Công ty</th>
+          <th>Trung bình ngành</th>
+          <th>Đánh giá</th>
+          <th>Ý nghĩa</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${benchmarkItems.map(([label, actual, avg, isPercent, direction, note]) => {
+          const [statusClass, statusText] = compareStatus(actual, avg, direction);
+          const actualText = isPercent ? formatPercent(actual) : formatNumber(actual);
+          const avgText = isPercent ? formatPercent(avg) : formatNumber(avg);
+          return `
+            <tr>
+              <td>${label}</td>
+              <td><strong>${actualText}</strong></td>
+              <td>${avgText}</td>
+              <td><span class="compare-status ${statusClass}">${statusText}</span></td>
+              <td>${note}</td>
+            </tr>
+          `;
+        }).join("")}
+      </tbody>
+    </table>
+  `;
+
+  const legacyBenchmark = benchmarkItems.slice(0, 4).map(([label, actual, avg, isPercent, , note]) => {
+    const actualText = isPercent ? formatPercent(actual) : formatNumber(actual);
+    const avgText = isPercent ? formatPercent(avg) : formatNumber(avg);
+    return `
+      <div class="benchmark-card">
+        <span>${label}</span>
+        <strong>${actualText} / TB ngành ${avgText}</strong>
+        <small>${note}</small>
+      </div>
+    `;
+  }).join("");
+  if (els.benchmarkCards) {
+    els.benchmarkCards.innerHTML = legacyBenchmark;
+  }
 
   const ratioHistory = getRatioHistory(company);
   const chartConfig = [
@@ -1184,7 +1399,7 @@ function renderModels() {
         <dl>
           <div><dt>Vai trò</dt><dd>${model.role}</dd></div>
       <div><dt>AUC</dt><dd>${model.auc}</dd></div>
-      <div><dt>Do chinh xac</dt><dd>${model.accuracy}</dd></div>
+      <div><dt>Độ chính xác</dt><dd>${model.accuracy}</dd></div>
       <div><dt>Recall rủi ro</dt><dd>${model.recall_distress}</dd></div>
           ${params}
         </dl>
@@ -1225,7 +1440,9 @@ function renderDashboard() {
   renderRatios(company);
   renderHistory(company);
   renderModels();
-  els.pipelineCode.textContent = pipelineCode;
+  if (els.pipelineCode) {
+    els.pipelineCode.textContent = pipelineCode;
+  }
 }
 
 function loadRealtimeCompany(ticker) {
